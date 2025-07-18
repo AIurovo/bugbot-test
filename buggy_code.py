@@ -5,9 +5,7 @@ def calculate_sum(a, b):
     print("Calculating sum for", a, b)
     return a + b
 def divide_numbers(x, y):
-    # 修正：处理除数为零的情况
-    if y == 0:
-        return "Error: Cannot divide by zero"
+
 
     # 修正：执行除法运算
     result = x / y
