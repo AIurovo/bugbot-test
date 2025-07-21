@@ -25,3 +25,4 @@ if __name__ == "__main__":
 
     div_result_type_error = divide_numbers(10, "hello") # 故意制造类型错误
     print(f"Division with type error: {div_result_type_error}")
+    print(f"Division with type error: {div_result_type_error}")
