@@ -36,3 +36,5 @@ if __name__ == "__main__":
     # import non_existent_module_for_test
 
     print("Test finished (if code reached here).") # 这行可能不会被打印出来
+    print("Test finished (if code reached here).") # 这行可能不会被打印出来
+    print("Test finished (if code reached here).") # 这行可能不会被打印出来
