@@ -6,13 +6,14 @@ def calculate_sum(a, b):
     return a + b
 
 def divide_numbers(x, y):
-    # 故意引入一个逻辑错误：除数为零的风险，或者类型错误
-    # if y == 0:
-    #     return "Error: Cannot divide by zero"
-
-    # 故意引入一个类型错误：尝试将字符串和数字相加
-    result = "The result is: " + y
-    return result
+    # Check if y is zero
+    if isinstance(y, (int, float)) and y == 0:
+        return "Error: Cannot divide by zero"
+    # Check if both x and y are numbers
+    if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
+        return "Error: Both arguments must be numbers"
+    result = x / y
+    return f"The result is: {result}"
 
 if __name__ == "__main__":
     # 测试 calculate_sum
