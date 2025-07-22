@@ -1,17 +1,21 @@
 # buggy_code.py
 
 def calculate_sum(a, b):
-    # 故意引入一个语法错误：缺少右括号
-    print("Calculating sum for", a, b
+    # Fixed syntax error: added missing right parenthesis
+    print("Calculating sum for", a, b)
     return a + b
 
 def divide_numbers(x, y):
-    # 故意引入一个逻辑错误：除数为零的风险，或者类型错误
-    # if y == 0:
-    #     return "Error: Cannot divide by zero"
-
-    # 故意引入一个类型错误：尝试将字符串和数字相加
-    result = "The result is: " + y
+    # Check for valid numeric types
+    if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
+        return "Error: Both arguments must be numeric"
+    
+    # Check for division by zero
+    if y == 0:
+        return "Error: Cannot divide by zero"
+    
+    # Perform the division
+    result = x / y
     return result
 
 if __name__ == "__main__":
