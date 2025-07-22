@@ -1,17 +1,25 @@
 # buggy_code.py
 
 def calculate_sum(a, b):
-    # 故意引入一个语法错误：缺少右括号
-    print("Calculating sum for", a, b
+    # Fixed syntax error: added missing closing parenthesis
+    print("Calculating sum for", a, b)
     return a + b
 
 def divide_numbers(x, y):
-    # 故意引入一个逻辑错误：除数为零的风险，或者类型错误
-    # if y == 0:
-    #     return "Error: Cannot divide by zero"
-
-    # 故意引入一个类型错误：尝试将字符串和数字相加
-    result = "The result is: " + y
+    # Check for type errors
+    try:
+        # Attempt to convert to float to handle numeric strings
+        x = float(x)
+        y = float(y)
+    except (TypeError, ValueError):
+        return "Error: Both arguments must be numeric"
+    
+    # Check for zero division
+    if y == 0:
+        return "Error: Cannot divide by zero"
+    
+    # Perform the division
+    result = x / y
     return result
 
 if __name__ == "__main__":
@@ -20,10 +28,14 @@ if __name__ == "__main__":
     print(f"Sum: {sum_result}")
 
     # 测试 divide_numbers
+    # Test normal division
+    div_result_normal = divide_numbers(10, 2)
+    print(f"Division 10/2: {div_result_normal}")
+    
+    # Test zero division
     div_result = divide_numbers(10, 0) # 故意制造除零错误
-    print(f"Division: {div_result}")
+    print(f"Division by zero: {div_result}")
 
+    # Test type error
     div_result_type_error = divide_numbers(10, "hello") # 故意制造类型错误
-    print(f"Division with type error: {div_result_type_error}")
-    print(f"Division with type error: {div_result_type_error}")
     print(f"Division with type error: {div_result_type_error}")
