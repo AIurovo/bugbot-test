@@ -2,17 +2,21 @@
 
 def calculate_sum(a, b):
     # 故意引入一个语法错误：缺少右括号
-    print("Calculating sum for", a, b
+    print("Calculating sum for", a, b)
     return a + b
 
 def divide_numbers(x, y):
-    # 故意引入一个逻辑错误：除数为零的风险，或者类型错误
-    # if y == 0:
-    #     return "Error: Cannot divide by zero"
+    # 类型和零除检查
+    # 1. 类型检查 - 仅允许 int 或 float
+    if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
+        return "Error: Both inputs must be numbers"
 
-    # 故意引入一个类型错误：尝试将字符串和数字相加
-    result = "The result is: " + y
-    return result
+    # 2. 零除检查
+    if y == 0:
+        return "Error: Cannot divide by zero"
+
+    # 3. 执行除法并返回结果
+    return x / y
 
 if __name__ == "__main__":
     # 测试 calculate_sum
