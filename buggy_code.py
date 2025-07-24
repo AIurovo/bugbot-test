@@ -20,14 +20,21 @@ def divide_numbers(x, y):
 
 if __name__ == "__main__":
     # 测试 calculate_sum
-    sum_result = calculate_sum(10, 5)
-    print(f"Sum: {sum_result}")
+    try:
+        sum_result = calculate_sum(10, 5)
+        print(f"Sum: {sum_result}")
+    except Exception as e:
+        print(f"Unexpected error in calculate_sum: {e}")
 
     # 测试 divide_numbers
-    div_result = divide_numbers(10, 0) # 故意制造除零错误
-    print(f"Division: {div_result}")
+    try:
+        div_result = divide_numbers(10, 0) # 故意制造除零错误
+        print(f"Division: {div_result}")
+    except Exception as e:
+        print(f"Unexpected error in divide_numbers (zero division): {e}")
 
-    div_result_type_error = divide_numbers(10, "hello") # 故意制造类型错误
-    print(f"Division with type error: {div_result_type_error}")
-    print(f"Division with type error: {div_result_type_error}")
-    print(f"Division with type error: {div_result_type_error}")
+    try:
+        div_result_type_error = divide_numbers(10, "hello") # 故意制造类型错误
+        print(f"Division with type error: {div_result_type_error}")
+    except Exception as e:
+        print(f"Unexpected error in divide_numbers (type error): {e}")
